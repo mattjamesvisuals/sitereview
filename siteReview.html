@@ -1,0 +1,173 @@
+
+
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title href = https://13stpb2fu9o8ievfc353kzj1-wpengine.netdna-ssl.com/wp-content/themes/sovrn-2016/favicon.ico>Sovrn | Site Review</title>
+  <meta name="description" content="Site Review">
+  <meta name="author" content="Matt">
+  <script
+  src='https://code.jquery.com/jquery-3.2.1.min.js'
+  integrity='sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4='
+  crossorigin='anonymous'></script>
+  <link href="https://fonts.googleapis.com/css?family=Nova+Mono" rel="stylesheet">
+
+<style>
+.preheader {
+
+  color: white;
+  display: inline-block;
+  width: 170px;
+  height: 92px;
+  background: url(http://www.sovrn.com/wp-content/themes/sovrn-2016/css/../img/sovrn_logo.png) no-repeat top left;
+
+}
+
+.container {
+
+  width: 100%;
+  height:auto;
+  margin-top: 150px;
+
+
+}
+
+  .content {
+    /*background-color: #51cf9a;
+    margin:auto;
+    text-align: center;
+    width: 50%;*/
+  }
+
+
+
+  .header {
+    background-color: #57b6c3;
+    width: 500px;
+    font-family: 'Nova Mono', monospace;
+    font-weight: bold;
+    font-size: 3em;
+    text-align: center;
+    margin: auto;
+    margin-top: 10px;
+    padding: 20px;
+    box-shadow: 5px 5px 10px #888888;
+
+  }
+
+  .body {
+
+  }
+
+  .formcontainer {
+    text-align: center;
+    margin: auto;
+    width: 500px;
+    margin-top: 15px;
+  }
+
+  #textfield {
+    padding: 10px;
+    border: solid 1px gainsboro;
+    width:500px;
+    line-height: 3em;
+    margin-left: -10px;
+    font-size: 1em;
+
+  }
+
+  #btn {
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    width: 150px;
+    margin-top: 10px;
+    margin-left: 72%;
+}
+
+  #btn:focus {
+  outline: none
+}
+
+  #valmessage {
+    font-size: 2em;
+    font-family: 'Nova Mono', monospace;
+    margin-top: 5px;
+    color: red;
+  }
+
+</style>
+
+<script>
+
+function updateTxt(field)
+{
+var field = document.getElementById(field).value;
+var adstxt = field + '/ads.txt';
+var secondTab = 'http://api.adsafeprotected.com/db2/client/12113/absit?adsafe_url=' + field;
+var thirdTab = 'https://ratings2.pixalate.com/domain-details/' + field + '/GLOBAL/desktop';
+var fourthTab = 'https://www.google.com/search?q=site:' + field + '+nsfw+OR+nude+OR+desnuda+OR+desnudo+OR+tetas+OR+sex&source=lnms&tbm=isch&sa=X&ved=0ahUKEwiU_a2v3LvVAhVj0YMKHQHkBjgQ_AUIDCgD&biw=1280&bih=607&dpr=2';
+
+field = field.replace('https://', '');
+field = field.replace('http://', '');
+field = field.replace('www.', '');
+
+if (field.length === 0) {
+   document.getElementById('valmessage').innerHTML = "*Please enter a URL*";
+   return false;
+  } else {
+
+    $.get(fourthTab, function( data ) {
+  $( "#iasdata" ).html( data );
+  alert( "Load was performed." );
+});
+
+    window.open('http://' + field , 'tabOne');
+    window.open('http://' + adstxt , 'adsTab');
+    window.open(secondTab , 'tabTwo');
+    window.open(thirdTab , 'tabThree');
+    window.open(fourthTab , 'tabFour');
+  }
+}
+
+//alert(field);
+
+
+
+function clearText ()
+{
+    var textfield = document.getElementById('textfield');
+      textfield.value = '';
+
+
+
+
+}
+
+
+</script>
+</head>
+
+<body style="background-color:#EEEEEE;">
+  <div class = "preheader"></div>
+   <div class = "container">
+    <div class = "content">
+     <div class= "header"> SITE REVIEW TOOL</div>
+      <div class = "formcontainer">
+      <form onSubmit = "return updateTxt('textfield');">
+       <div class = "textfield"><input name="textfield" type="text" id="textfield" placeholder="Website URL" class="search_input" onclick="clearText()"></input></div>
+       <div class = "button"><input type ="submit"id="btn" value="Enter"></input></div>
+       <div id="valmessage"></div>
+       <div id="iasdata"></div>
+      </form>
+    </div>
+   </div>
+  </div>
+</body>
+</html>
